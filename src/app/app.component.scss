@@ -1,0 +1,22 @@
+.vertical-center {
+    .fixed-content,
+    .scroll-content {
+        display: flex;
+        align-items: center;
+
+        ion-list {
+            max-width: 300px; 
+            width:100%; 
+            margin: auto; 
+            text-align: center;
+        }
+    }
+}
+
+
+.wrap {
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    display: flex;
+  }

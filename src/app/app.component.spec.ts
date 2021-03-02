@@ -18,6 +18,14 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
-  // TODO: add more tests!
+  it('should have menu labels', waitForAsync(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const app = fixture.nativeElement;
+    const menuItems = app.querySelectorAll('ion-label');
+    expect(menuItems.length).toEqual(12);
+    expect(menuItems[0].textContent).toContain('Inbox');
+    expect(menuItems[1].textContent).toContain('Outbox');
+  }));
 
 });

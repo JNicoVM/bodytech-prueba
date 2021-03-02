@@ -1,9 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
+  <ion-toolbar color ="tertiary">
+    <ion-title>bodytech-prueba</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+<ion-virtual-scroll [items]="data" approxItemHeight="70px" >
+    <ion-item *virtualItem="let item" (click)="prueba(item)" class="uppercase" >
+      Item : {{ item.title }}
+    </ion-item>
+  </ion-virtual-scroll>
+
+
+  <!-- <ion-card (click)="prueba($any)" *ngFor="let data of data">
+    <ion-item>
+      <ion-label>
+        <h2 class="uppercase"> {{data.title}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-card> -->
+
+  <!-- <ion-button
+  (click) ="onLogOut()"
+  class="ion-padding"
+      expand ="block">
+    Desconectarse
+  </ion-button> -->
 
 </ion-content>
