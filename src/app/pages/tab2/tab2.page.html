@@ -4,10 +4,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen] =true>
-  <img src="{{imageUrl}}" height="200" width="200"/>
-  <ion-button (click) ="getCamera()">
-    Tomar una foto
-  </ion-button>
+<ion-content [fullscreen]="true">
+  <img [src]="base64Image">
 
+
+  <div id="footer" style="text-align:center">
+    <div class="main">
+      <div class="sub-main">
+        <button class="button-one" (click)= "openMyCamera()">Tomar una foto</button>
+      </div>
+      <div class="bottom">
+        <h3>{{textChanged}}</h3>
+      </div>
+    </div>
+</div>
 </ion-content>

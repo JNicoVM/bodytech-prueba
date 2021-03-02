@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -12,12 +13,15 @@ export class Tab1Page implements OnInit {
 
    constructor(
     public router: Router,
-    private http: HttpClient,) { 
+    private http: HttpClient,
+    public navCtrl: NavController) { 
       this.loadData();
     }
 
   ngOnInit() {
   }
+
+  
 
   loadData(){
     this.http.get("https://jsonplaceholder.typicode.com/posts/")
@@ -28,7 +32,16 @@ export class Tab1Page implements OnInit {
 }
 
 prueba(result){
-  console.log(result);
+  var kvArray = [{"userId" : result["userId"]},
+  {"id" : result["id"]},
+  {"title" : result["title"]},
+  {"body" : result["body"]}];
+  let navigationExtras: NavigationExtras = {
+    queryParams: {
+        currency: JSON.stringify(kvArray)
+    }
+};
+  this.router.navigate(["/details/"], navigationExtras);
 }
 
 

@@ -8,7 +8,7 @@
 
   <ion-virtual-scroll [items]="data" approxItemHeight="70px" >
       <ion-item *virtualItem="let item" (click)="prueba(item)" class="uppercase" >
-        Item : {{ item.title }}
+      {{ item.title }}
       </ion-item>
     </ion-virtual-scroll>
   

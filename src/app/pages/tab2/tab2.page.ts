@@ -8,22 +8,28 @@ import { Camera } from '@ionic-native/camera/ngx';
 })
 export class Tab2Page implements OnInit {
 
-  imageUrl;
-
+  base64Image : String;
+  textChanged: String = "No se ha tomado ninguna foto!";
   constructor(private camera: Camera) { }
 
   ngOnInit() {
   }
 
-  getCamera(){
-      this.camera.getPicture({
-        sourceType : this.camera.PictureSourceType.CAMERA,
-        destinationType: this.camera.DestinationType.FILE_URI
-      }).then((ress) =>{
-          this.imageUrl=  'data:image/jpeg;base64,' + ress;
-      }).catch((err)=>{
-        console.log(err)
-      })
+
+
+  openMyCamera()
+  {
+    this.camera.getPicture({quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true}).then((imageData) => {
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.textChanged =  "Excelente has tomador una foto!";
+    }, (err) => {
+     // Handle error
+    });
   }
+
 
 }
