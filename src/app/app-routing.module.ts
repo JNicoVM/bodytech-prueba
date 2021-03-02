@@ -22,10 +22,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'camera',
-    loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
-  },
-  {
     path: 'details',
     loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
   }
